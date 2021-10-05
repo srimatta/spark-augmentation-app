@@ -28,8 +28,8 @@ if __name__ == '__main__':
 
     from mmlspark.opencv import ImageTransformer
 
-    images_input_dir  = "/Users/srinivas/Desktop/projects/spark-augmentation/images"
-    images_output_dir = "/Users/srinivas/Desktop/projects/spark-augmentation/images_processed"
+    images_input_dir  = "/Users/srinivas/Desktop/github_projects/spark-augmentation-app/images"
+    images_output_dir = "/Users/srinivas/Desktop/github_projects/spark-augmentation-app/images_processed"
 
     images = spark.read.format("image").load(images_input_dir)
 

@@ -1,6 +1,6 @@
 # spark-augmentation-app
 
-run below command to generate egg file,
+Run the below command to generate egg file,
 
 spark-augmentation-app % python setup.py bdist_egg 
 
