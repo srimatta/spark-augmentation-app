@@ -6,9 +6,9 @@ import os
 from app.autoaugment import CIFAR10Policy
 from pyspark.sql.types import Row
 
-def augment_image_generator(image_row_data_itr, no_of_augmented_images):
+def augment_image_generator(image_row_data_itr, no_of_augmented_images, policy):
 
-    policy = CIFAR10Policy()
+
     for image_row_data in image_row_data_itr:
 
         row_dict = image_row_data.asDict()

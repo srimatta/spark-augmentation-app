@@ -45,7 +45,7 @@ if __name__ == '__main__':
                                   "image.origin")
 
         augement_imgs_df_new = transformed_df.rdd.mapPartitions(
-            lambda row_img_data_itr: ImageUtils.augment_image_generator(row_img_data_itr, no_of_augmented_images)).flatMap(lambda x: x).toDF(image_schema)
+            lambda row_img_data_itr: ImageUtils.augment_image_generator(row_img_data_itr, no_of_augmented_images, CIFAR10Policy())).flatMap(lambda x: x).toDF(image_schema)
 
         augement_imgs_transformed_df = augement_imgs_df_new.withColumn('filenames',
                                                regexp_replace(col("image.origin"), images_input_dir, images_output_dir))
