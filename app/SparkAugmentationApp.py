@@ -5,8 +5,6 @@ from app.autoaugment import CIFAR10Policy
 from pyspark.sql.types import *
 import os
 
-os.environ['SPARK_HOME'] ='/Users/srinivas/Desktop/spark-2.4.6-bin-hadoop2.7'
-os.environ['OBJC_DISABLE_INITIALIZE_FORK_SAFETY'] ='YES'
 
 if __name__ == '__main__':
     ImageFields = ["origin", "height", "width", "nChannels", "mode", "data"]
@@ -30,8 +28,8 @@ if __name__ == '__main__':
 
     from mmlspark.opencv import ImageTransformer
 
-    images_input_dir  = "/Users/srinivas/Desktop/github_projects/spark-augmentation-app/images"
-    images_output_dir = "/Users/srinivas/Desktop/github_projects/spark-augmentation-app/images_processed"
+    images_input_dir  = "images"
+    images_output_dir = "images_processed"
 
     images_df = spark.read.format("image").load(images_input_dir)
 
