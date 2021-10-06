@@ -7,6 +7,8 @@ from app.autoaugment import CIFAR10Policy
 from pyspark.sql.types import Row
 
 def augment_image_generator(image_row_data_itr, no_of_augmented_images):
+
+    policy = CIFAR10Policy()
     for image_row_data in image_row_data_itr:
 
         row_dict = image_row_data.asDict()
@@ -15,9 +17,6 @@ def augment_image_generator(image_row_data_itr, no_of_augmented_images):
         width = row_dict['width']
         nChannels = row_dict['nChannels']
         mode = row_dict['mode']
-        print(row_dict['height'])
-        print(row_dict['width'])
-        print(row_dict['mode'])
 
         data = row_dict['data']
         filepath = row_dict['origin']
@@ -30,8 +29,6 @@ def augment_image_generator(image_row_data_itr, no_of_augmented_images):
         pil_image = Image.fromarray(
             cv2.cvtColor(image_np_array, cv2.COLOR_BGR2RGB)
         )
-
-        policy = CIFAR10Policy()
 
         img_rows = []
         counter = 0
